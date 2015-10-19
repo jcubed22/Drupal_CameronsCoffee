@@ -1,0 +1,55 @@
+<?php
+function favorites_menu() {
+  $items = array();
+  $items['favorite_movies'] = array(
+    'title' => "Favorite Movies",
+    'page callback' => 'my_favorite_movies',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  $items['favorite_books'] = array(
+    'title' => 'Favorite Books',
+    'page callback' => 'my_favorite_books',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  $items['favorite_songs'] = array(
+    'title' => 'Favorite Songs',
+    'page callback' => 'my_favorite_songs',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  return $items;
+}
+
+function my_favorite_movies() {
+  return '
+    <ol>
+      <li>The Sting</li>
+      <li>American Psycho</li>
+      <li>Almost Famous</li>
+    </ol>
+  ';
+}
+
+function my_favorite_books() {
+  return '
+    <ol>
+      <li>Lord of the Rings</li>
+      <li>A Separate Peace</li>
+      <li>Reamde</li>
+    </ol>
+  ';
+}
+
+function my_favorite_songs() {
+  return '
+    <ol>
+      <li>Yesterday by The Beatles</li>
+      <li>Terxic by Burdney Spars</li>
+      <li>Curm urn Urver by Cursturner Urgulurer</li>
+    </ol>
+  ';
+}
+
+// favorite movies, books, songs
