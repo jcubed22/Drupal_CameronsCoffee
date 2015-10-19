@@ -1,0 +1,39 @@
+<?php
+
+function cards_menu() {
+  $items = array();
+  $items['cards/jimjoe'] = array(
+    'title' => 'Hello Jim Joe',
+    'page callback' => 'cards_jimjoe',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  $items['cards/frankenstein'] = array(
+    'title' => 'Hello Frankenstein',
+    'page callback' => 'cards_frankenstein',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  $items['cards/turtleman'] = array(
+    'title' => 'Hello Turtleman',
+    'page callback' => 'cards_turtleman',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+  );
+  return $items;
+}
+
+function cards_jimjoe() {
+  $output = '<p>Hey there Jim Joe!  Portland is great!  You should come visit!</p>';
+  return $output;
+}
+
+function cards_frankenstein() {
+  $output = '<p>Hello Frankenstein!  I hope you\'re doing well at school, we miss you and haven\'t heard from you in a while!  Don\'t go making any monsters now, haha!</p>';
+  return $output;
+}
+
+function cards_turtleman() {
+  $output = '<p>Hey Turtleman, hope you\'re having a sHELL of a time wherever you are!</p>';
+  return $output;
+}
