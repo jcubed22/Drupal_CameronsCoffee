@@ -5,19 +5,19 @@ function favorites_menu() {
     'title' => "Favorite Movies",
     'page callback' => 'my_favorite_movies',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_NORMAL_ITEM,
   );
   $items['favorite_books'] = array(
     'title' => 'Favorite Books',
     'page callback' => 'my_favorite_books',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_NORMAL_ITEM,
   );
   $items['favorite_songs'] = array(
     'title' => 'Favorite Songs',
     'page callback' => 'my_favorite_songs',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_NORMAL_ITEM,
   );
   return $items;
 }

@@ -6,7 +6,7 @@ function pet_menu() {
     'title' => 'My Pet Project (Badum-ch!)',
     'page callback' => 'pet_info',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_NORMAL_ITEM,
   );
   return $items;
 }

@@ -9,7 +9,7 @@ function cards_menu() {
       'page callback' => 'greeting_card',
       'access callback' => TRUE,
       'type' => MENU_NORMAL_ITEM,
-      'page arguments' => array($friend)
+      'page arguments' => array($friend),
     );
   };
   return $items;

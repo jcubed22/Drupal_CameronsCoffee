@@ -6,7 +6,7 @@ function groceries_menu() {
     'title' => 'Grocery List',
     'page callback' => 'grocery_list',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_NORMAL_ITEM,
   );
   return $items;
 }
@@ -14,23 +14,23 @@ function groceries_menu() {
 function grocery_array() {
   $list['eggs'] = array(
     'price' => 3.99,
-    'quantity' => 2
+    'quantity' => 2,
   );
   $list['bacon'] = array(
     'price' => 6.99,
-    'quantity' => 5
+    'quantity' => 5,
   );
   $list['frozen dinners'] = array(
     'price' => 1.00,
-    'quantity' => 20
+    'quantity' => 20,
   );
   $list['pumpkins'] = array(
     'price' => 5.00,
-    'quantity' => 3
+    'quantity' => 3,
   );
   $list['paper cups'] = array(
     'price' => 2.99,
-    'quantity' => 1
+    'quantity' => 1,
   );
   return $list;
 }
