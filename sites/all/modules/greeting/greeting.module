@@ -6,13 +6,13 @@ function greeting_menu() {
     'title' => 'Hello Friend!',
     'page callback' => 'say_hello',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_CALLBACK
   );
   $items['goodbye'] = array(
     'title' => 'Goodbye Friend!',
     'page callback' => 'say_goodbye',
     'access callback' => TRUE,
-    'type' => MENU_NORMAL_ITEM
+    'type' => MENU_CALLBACK
   );
   return $items;
 }
