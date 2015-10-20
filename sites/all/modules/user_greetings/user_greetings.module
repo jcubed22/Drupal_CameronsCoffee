@@ -1,0 +1,69 @@
+<?php
+
+function user_greetings_menu() {
+  $items = array();
+  $items['splash_login'] = array(
+    'title' => 'Welcome!',
+    'page callback' => 'user_logged_in',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin_logout'] = array(
+    'title' => 'Goodbye!',
+    'page callback' => 'admin_logged_out',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['vip_logout'] = array(
+    'title' => 'Goodbye!',
+    'page callback' => 'vip_logged_out',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['authenticated_logout'] = array(
+    'title' => 'Goodbye!',
+    'page callback' => 'auth_logged_out',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function user_logged_in() {
+  GLOBAL $user;
+  if(in_array('administrator', $user->roles)) {
+    return '<h3>Welcome, almighty Admin!</h3>';
+  } elseif(in_array('VIP', $user->roles)) {
+    return '<h3>Ooohhhh, you so important!</h3>';
+  } else {
+    return '<h3>Way to get authenticated!</h3>';
+  }
+}
+
+function user_greetings_user_login() {
+  $_GET['destination'] = 'splash_login';
+}
+
+function user_greetings_user_logout() {
+  GLOBAL $user;
+  if(in_array('administrator', $user->roles)) {
+    $_GET['destination'] = 'admin_logout';
+  } elseif (in_array('VIP', $user->roles)) {
+    $_GET['destination'] = 'vip_logout';
+  } else {
+    $_GET['destination'] = 'authenticated_logout';
+  }
+}
+
+function admin_logged_out() {
+  return '<h3>Our fearless admin has left us!  All is lost!!!</h3>';
+}
+
+function vip_logged_out() {
+  return '<h3>Mr. Big Stuff, who do you think you are???</h3>';
+}
+
+function auth_logged_out() {
+  return "<h3>We're authentically sad to see you go!</h3>";
+}

@@ -1,0 +1,5 @@
+name = Login Splash
+description = Redirects users to splash page based on user role.
+package = My First Modules
+core = 7.x
+files[] = user_greetings.module

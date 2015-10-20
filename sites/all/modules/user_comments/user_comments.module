@@ -7,3 +7,7 @@ function user_comments_comment_delete($comment) {
 function user_comments_comment_insert() {
   drupal_set_message('Thanks for your comment!  Check back to follow the conversation!');
 }
+
+function user_comments_comment_update() {
+  drupal_set_message('Your comment has been changed.');
+}
