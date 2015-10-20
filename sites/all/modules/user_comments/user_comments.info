@@ -1,0 +1,5 @@
+name = User_Comments
+description = Actions for user comment message.
+package = My First Modules
+core = 7.x
+files[] = user_comments.module

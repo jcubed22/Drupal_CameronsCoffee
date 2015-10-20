@@ -1,0 +1,9 @@
+<?php
+
+function user_comments_comment_delete($comment) {
+  drupal_set_message(t('Comment: @subject is NO MORE!', array('@subject' => $comment->subject)));
+}
+
+function user_comments_comment_insert() {
+  drupal_set_message('Thanks for your comment!  Check back to follow the conversation!');
+}
