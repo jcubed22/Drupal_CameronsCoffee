@@ -1,0 +1,7 @@
+Title Case Specs
+
+1. Creates a menu link that takes users to a page with a form with a single text field and submit button.
+
+2. When form is submitted, user is redirected to a secondary page with the url "title_case_success".
+
+3. Page displays user input string in title case.

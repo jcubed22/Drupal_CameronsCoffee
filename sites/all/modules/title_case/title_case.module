@@ -1,0 +1,89 @@
+<?php
+
+    function title_case_menu() {
+        $items = array();
+        $items['title_case'] = array(
+            'title' => 'Title Case Converter',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('title_case_form'),
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+        );
+        $items['titlecase_success'] = array(
+            'title' => 'Converted Title',
+            'page callback' => 'title_success',
+            'access callback' => TRUE,
+            'type' => MENU_CALLBACK,
+        );
+
+        return $items;
+    }
+
+    function title_case_form() {
+        $form['input_string'] = array(
+            '#title' => 'Input String',
+            '#type' => 'textfield',
+            '#description' => t('Please type a short sentence you\'d like to convert to title case.'),
+        );
+
+        $form['submit'] = array(
+            '#type' => 'submit',
+            '#value' => 'Convert It!',
+        );
+
+        return $form;
+    }
+
+    function title_case_form_submit($form, &$form_state) {
+        $input_string = $form_state['values']['input_string'];
+        $_SESSION['input_string'] = $input_string;
+        $title_case_output = array();
+
+        $ignore_words = array(
+            'of',
+            'a',
+            'the',
+            'and',
+            'an',
+            'or',
+            'nor',
+            'but',
+            'is',
+            'it',
+            'if',
+            'then',
+            'else',
+            'when',
+            'at',
+            'from',
+            'by',
+            'on',
+            'off',
+            'for',
+            'in',
+            'out',
+            'over',
+            'to',
+            'into',
+            'with'
+        );
+
+        $words = explode(' ', $input_string);
+
+        foreach($words as $key => $word) {
+            if(!$key || !in_array($word, $ignore_words)) {
+                $words[$key] = ucwords($word);
+            }
+        }
+
+        $new_string = implode(' ', $words);
+        $_SESSION['titlecase_output'] = $new_string;
+        $form_state['redirect'] = 'titlecase_success';
+    }
+
+    function title_success() {
+        $input_string = $_SESSION['input_string'];
+        $output_string = $_SESSION['titlecase_output'];
+        return "<p>Your original sentence: $input_string.</p>
+                <p>The converted sentence is: $output_string.</p>";
+    }

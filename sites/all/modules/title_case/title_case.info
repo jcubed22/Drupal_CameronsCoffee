@@ -1,0 +1,5 @@
+name = Title Case
+description = Converts user input into title case and outputs another page.
+package = My First Modules
+core = 7.x
+files[] = title_case.module
